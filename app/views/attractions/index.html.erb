@@ -1,0 +1,11 @@
+<h2>CURRENT ATTRACTIONS:</h2>
+<% Attraction.all.each do |attraction| %>
+  <%= link_to "Go on #{attraction.name}", attraction unless @user.admin %>
+  <br>
+  <%= link_to "Show #{attraction.name}", attraction %>
+<% end %>
+<br>
+<br>
+<br>
+
+<h2><%= link_to "New Attraction", new_attraction_path %></h2>

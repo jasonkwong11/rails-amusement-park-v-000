@@ -33,7 +33,13 @@ class Ride < ActiveRecord::Base
         current_user.happiness = user_happiness + attraction_happiness
         save_current_user
       end
+  end
 
+  def too_short?
+    self.user.height < self.attraction.min_height
+  end
 
+  def not_enough_tickets?
+    (self.user.tickets - self.attraction.tickets) < 0
   end
 end
